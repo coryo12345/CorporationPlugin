@@ -1,0 +1,12 @@
+main: com.corydio.App
+name: corporations
+version: 1.0
+description: Player corporations
+api-version: 1.19
+authors: [cory]
+
+commands:
+  corpcreate:
+    description: Create a new corporation
+    usage: /corpcreate <name>
+    permission: corporations.create
