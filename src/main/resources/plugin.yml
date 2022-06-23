@@ -9,4 +9,9 @@ commands:
   corpcreate:
     description: Create a new corporation
     usage: /corpcreate <name>
-    permission: corporations.create
+    permission: corporations.corp.create
+
+  bank:
+    description: Open corporation bank
+    usage: Open the bank for your corporation. Must be in a corporation to use.
+    permission: corporations.bank

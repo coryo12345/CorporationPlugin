@@ -2,6 +2,7 @@ package com.corydio;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.corydio.commands.CorporationBank;
 import com.corydio.commands.CorporationCreate;
 
 /**
@@ -14,8 +15,13 @@ public class App extends JavaPlugin {
         // init global logger
         Console.initLogger(getLogger());
 
+        // load data
+
         // init commands
         this.getCommand("corpcreate").setExecutor(new CorporationCreate());
+        // corpjoin
+        // corpleave
+        this.getCommand("bank").setExecutor(new CorporationBank());
 
         Console.log("Corporations loaded!");
     }

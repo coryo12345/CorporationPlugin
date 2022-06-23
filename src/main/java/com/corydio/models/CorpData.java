@@ -1,8 +1,9 @@
 package com.corydio.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class CorpData implements Serializable {
     // static factory
@@ -15,14 +16,20 @@ public class CorpData implements Serializable {
         return data;
     }
 
-    public static List<Corporation> getCorporations() {
-        return data.corporations;
-    }
-
     // instance properties
-    private final List<Corporation> corporations;
+    private final Map<UUID, Corporation> corporationsByPlayer;
 
     private CorpData() {
-        this.corporations = new ArrayList<Corporation>();
+        this.corporationsByPlayer = new HashMap<UUID, Corporation>();
+    }
+
+    public Corporation getCorporationForPlayer(UUID playerId) {
+        return this.corporationsByPlayer.get(playerId);
+    }
+
+    public Corporation addPlayerToNewCorporation(UUID playerId, String corpName) {
+        Corporation corp = new Corporation(corpName);
+        this.corporationsByPlayer.put(playerId, corp);
+        return corp;
     }
 }
